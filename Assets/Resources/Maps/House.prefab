@@ -4429,6 +4429,7 @@ GameObject:
   - component: {fileID: 8607566052844075943}
   - component: {fileID: 4058462027312034836}
   - component: {fileID: 3329686404386818596}
+  - component: {fileID: 1228036165207633605}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -4545,6 +4546,26 @@ MonoBehaviour:
   - handmade_fire_pistol
   target: {fileID: 0}
   generateLoot: 0
+--- !u!114 &1228036165207633605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8607566052844075940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4831c2cff428ff4b8f6403f6dca0a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  enemies:
+  - {fileID: 1830738162083405173, guid: 17e3d3ec15cdece408103a81b3415ca3, type: 3}
+  target: {fileID: 8607566053241794544}
+  maxEnemies: 1
+  spawnInterval: 5
 --- !u!1 &8607566052936810138
 GameObject:
   m_ObjectHideFlags: 0
