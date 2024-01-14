@@ -8,6 +8,7 @@ public class DynamicMaze : NetworkBehaviour
 {
 	public int size = 10;
 	public int maxSize = 100;
+	public bool moveForwards = true;
 	public Object[] tiles;
 	public Object[] rareTiles;
 	public List<Transform> spawnedTiles;
@@ -38,7 +39,7 @@ public class DynamicMaze : NetworkBehaviour
 						LayerMask.GetMask("Default")
 					);
 
-					Vector3 pos = connector.position + (connector.forward * bounds.size.z * 0.5f);
+					Vector3 pos = connector.position + (moveForwards ? (connector.forward * bounds.size.z * 0.5f) : Vector3.zero);
 
 					if (overlapping.Length == 0 && pos.x >= -maxSize && pos.x <= maxSize && pos.z >= -maxSize && pos.z <= maxSize) {
 						GameObject spawnedTile = Instantiate(tileToSpawn, pos, connector.rotation, transform.parent);

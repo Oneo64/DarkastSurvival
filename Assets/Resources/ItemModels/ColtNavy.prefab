@@ -9880,10 +9880,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c537aea5f50bbc44c82607a8462e5d7c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4e0d29569ffd7ef4da6b99dab84f5d21, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0

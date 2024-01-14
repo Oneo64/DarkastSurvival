@@ -190,6 +190,7 @@ MonoBehaviour:
   syncInterval: 0
   detectionRange: 200
   health: 100
+  score: 20
   reach: 180
   isDead: 0
   attackInterval: 0.15

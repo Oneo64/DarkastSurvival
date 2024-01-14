@@ -13,6 +13,7 @@ public class PlayerCore : NetworkBehaviour
 	public Transform neck;
 	public Transform tool;
 	[SyncVar] public bool isDead;
+	[SyncVar(hook="UpdateScore")] public int score;
 
 	Volume bloodEffect;
 	int health = 100;
@@ -122,6 +123,7 @@ public class PlayerCore : NetworkBehaviour
 									);
 								}
 
+								CmdFireGun(tool.position + (Vector3.up * 0.02f) - (camera.transform.forward * 0.2f), directions, gun);
 								FireGun(tool.position + (Vector3.up * 0.02f) - (camera.transform.forward * 0.2f), directions, gun);
 								shootWait = Time.time + gun.fireRate;
 
@@ -135,11 +137,29 @@ public class PlayerCore : NetworkBehaviour
 					}
 
 					animator.SetBool("Aiming", Input.GetKey(KeyCode.Mouse1));
+					canvas.Find("Dot").gameObject.SetActive(!Input.GetKey(KeyCode.Mouse1));
+				} else if (inventory.selectedItem.GetData() is Throwable) {
+					if (Input.GetKeyDown(KeyCode.Mouse0)) {
+						CmdThrow(
+							((Throwable) inventory.selectedItem.GetData()).model,
+							tool.position + (camera.transform.forward * 0.2f), camera.transform.forward, 3000
+						);
+
+						Item item = inventory.inventory[inventory.selected];
+						item.amount -= 1;
+
+						if (item.amount <= 0) inventory.inventory[inventory.selected] = null;
+
+						inventory.UpdateInventory();
+						inventory.CheckAnimations();
+					}
 				} else {
 					animator.SetBool("Aiming", false);
+					if (!canvas.Find("Dot").gameObject.activeInHierarchy) canvas.Find("Dot").gameObject.SetActive(true);
 				}
 			} else {
 				animator.SetBool("Aiming", false);
+				if (!canvas.Find("Dot").gameObject.activeInHierarchy) canvas.Find("Dot").gameObject.SetActive(true);
 			}
 
 			Color healthColor = Color.HSVToRGB(Mathf.Clamp01(Mathf.Lerp(-0.5f, 1.5f, health / 100f)) / 3, 1, 1);
@@ -254,13 +274,15 @@ public class PlayerCore : NetworkBehaviour
 	}
 
 	private void FireGun(Vector3 pos, Vector3[] dir, Gun gun) {
-		for (int i = 0; i < dir.Length; i++) {
-			GameObject g = Instantiate(Resources.Load(gun.bullet) as GameObject, pos, Quaternion.Euler(dir[i]));
+		if (gun.muzzleVelocity > 0) {
+			for (int i = 0; i < dir.Length; i++) {
+				GameObject g = Instantiate(Resources.Load(gun.bullet) as GameObject, pos, Quaternion.Euler(dir[i]));
 
-			g.GetComponent<StaticProjectile>().minDamage = gun.minDamage;
-			g.GetComponent<StaticProjectile>().maxDamage = gun.maxDamage;
-			g.GetComponent<StaticProjectile>().speed = gun.muzzleVelocity;
-			g.GetComponent<StaticProjectile>().owner = transform;
+				g.GetComponent<StaticProjectile>().minDamage = gun.minDamage;
+				g.GetComponent<StaticProjectile>().maxDamage = gun.maxDamage;
+				g.GetComponent<StaticProjectile>().speed = gun.muzzleVelocity;
+				g.GetComponent<StaticProjectile>().owner = transform;
+			}
 		}
 
 		if (tool.childCount > 0 && tool.GetChild(0) != null && tool.GetChild(0).Find("ShootNear") != null) {
@@ -277,6 +299,19 @@ public class PlayerCore : NetworkBehaviour
 			audio1.PlayOneShot(audio1.clip);
 			audio2.PlayOneShot(audio2.clip);
 		}
+
+		CmdScore(1);
+	}
+
+	[Command]
+	private void CmdThrow(string obj, Vector3 pos, Vector3 dir, float force) {
+		GameObject obj2 = Instantiate(Resources.Load(obj) as GameObject, pos, Quaternion.LookRotation(dir));
+
+		obj2.GetComponent<Rigidbody>().AddForce(dir * force);
+
+		if (obj2.GetComponent<Grenade>()) obj2.GetComponent<Grenade>().owner = transform;
+
+		NetworkServer.Spawn(obj2);
 	}
 
 	[Command]
@@ -292,6 +327,11 @@ public class PlayerCore : NetworkBehaviour
 		item2.GetComponent<Rigidbody>().AddForce(forward * 500);
 
 		NetworkServer.Spawn(item2);
+	}
+
+	[Command]
+	private void CmdScore(int s) {
+		score += s;
 	}
 
 	public void PlayLocalSound(string n) {
@@ -311,5 +351,9 @@ public class PlayerCore : NetworkBehaviour
 				}
 			}
 		}
+	}
+
+	void UpdateScore(int old, int _new) {
+		if (isLocalPlayer) canvas.Find("Score").GetComponent<Text>().text = score + "";
 	}
 }

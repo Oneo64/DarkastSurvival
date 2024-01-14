@@ -566,7 +566,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  tileSize: 10
+  tileSize: 5
   size: 10
   maxSize: 1000
   tiles:

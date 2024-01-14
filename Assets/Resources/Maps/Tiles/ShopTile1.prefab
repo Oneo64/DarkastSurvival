@@ -1083,6 +1083,7 @@ MonoBehaviour:
   - canned_soup
   - canned_tuna
   - wood
+  - spring
   rareLoot:
   - makarov
   - glock_17

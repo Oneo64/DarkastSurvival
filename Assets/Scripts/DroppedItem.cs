@@ -40,10 +40,10 @@ public class DroppedItem : NetworkBehaviour
 				model.transform.localPosition = Vector3.zero;
 				model.transform.localEulerAngles = Vector3.zero;
 
-				MeshCollider collider = gameObject.AddComponent<MeshCollider>();
+				BoxCollider collider = gameObject.AddComponent<BoxCollider>();
 
-				collider.sharedMesh = m;
-				collider.convex = true;
+				collider.center = m.bounds.center;
+				collider.size = m.bounds.size;
 			}
 		}
 	}

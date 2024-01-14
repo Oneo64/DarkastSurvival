@@ -182,8 +182,8 @@ MonoBehaviour:
   canPenetrate: 0
   maxDamage: 40
   minDamage: 20
-  explosionRadiusMin: 0.5
-  explosionRadiusMax: 1.5
+  explosionRadiusMin: 0
+  explosionRadiusMax: 0
   force: 2000
   trailChance: 1
   destroyTime: 0.1

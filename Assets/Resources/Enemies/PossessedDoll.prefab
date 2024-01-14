@@ -186,7 +186,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   detectionRange: 50
-  health: 20
+  health: 30
+  score: 7
   reach: 1
   isDead: 0
   attackInterval: 0.5
@@ -194,11 +195,14 @@ MonoBehaviour:
   ragdollname: DollRagdoll
   follow: {fileID: 0}
   isLeader: 0
+  leaderChance: 100
   minionId: 
   minionCount: 2
+  slowReaction: 0
   agent: {fileID: 0}
   animator: {fileID: 0}
   walkWait: 0
+  attackWait: 0
   target: {fileID: 0}
   renderer: {fileID: 5275089881059560182}
   shirt: {r: 0, g: 0, b: 0, a: 0}

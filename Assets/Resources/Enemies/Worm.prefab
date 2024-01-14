@@ -418,6 +418,7 @@ MonoBehaviour:
   syncInterval: 0
   detectionRange: 50
   health: 400
+  score: 15
   reach: 2
   isDead: 0
   attackInterval: 2
@@ -428,6 +429,7 @@ MonoBehaviour:
   leaderChance: 100
   minionId: 
   minionCount: 2
+  slowReaction: 0
   agent: {fileID: 0}
   animator: {fileID: 0}
   walkWait: 0

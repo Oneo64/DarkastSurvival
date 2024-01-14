@@ -4928,6 +4928,7 @@ MonoBehaviour:
   syncInterval: 0
   detectionRange: 50
   health: 250
+  score: 12
   reach: 15
   isDead: 0
   attackInterval: 1
@@ -5051,7 +5052,7 @@ NavMeshAgent:
   m_Radius: 1
   m_Speed: 4
   m_Acceleration: 20
-  avoidancePriority: 50
+  avoidancePriority: 2
   m_AngularSpeed: 90
   m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1

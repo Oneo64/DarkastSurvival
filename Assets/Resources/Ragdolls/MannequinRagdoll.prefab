@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 1941803756648508890}
   m_Layer: 6
   m_Name: MannequinRagdoll
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1408,7 +1408,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -2081271559087094936, guid: 312d7373fe52f694aabe7f93a6792704, type: 3}
+  m_Mesh: {fileID: 2062641111430910883, guid: 312d7373fe52f694aabe7f93a6792704, type: 3}
   m_Bones:
   - {fileID: 3991250704478482147}
   - {fileID: 5449541624586994280}

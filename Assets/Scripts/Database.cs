@@ -14,13 +14,13 @@ public class Database : Object
 			"Makarov", "bullet",
 			new string[] {"makarov", "HoldPistol", "pistol_magazine"},
 			7, false, 40, 60, 250,
-			0.1f, 0.2f
+			0.1f, 0.25f
 		)},
 		{"glock_17", new Gun(
 			"Glock 17", "bullet",
 			new string[] {"glock", "HoldPistol", "pistol_magazine"},
 			10, false, 30, 40, 300,
-			0.05f, 0.2f
+			0.05f, 0.15f
 		)},
 		{"colt_navy", new Gun(
 			"Colt 1851 Navy Revolver", "bullet",
@@ -44,7 +44,7 @@ public class Database : Object
 		{"mossberg_500", new Gun(
 			"Mossberg 500", "bullet",
 			new string[] {"mossberg500", "HoldRifle", "12_guage_box"},
-			8, false, 12, 15, 250,
+			8, false, 15, 17, 250,
 			0.5f, 2, 9
 		)},
 		{"cz_455", new Gun(
@@ -94,6 +94,9 @@ public class Database : Object
 		{"wood", new Tool("Wood Plank", "wood")},
 		{"metal", new Tool("Metal Scrap", "metal")},
 		{"spring", new Tool("Spring", "spring")},
+
+		{"flare", new Throwable("Metal Scrap", "metal")},
+		{"grenade", new Throwable("Grenade", "grenade")},
 
 		{"canned_soup", new Food("Canned Soup", "soup", 10)},
 		{"canned_tuna", new Food("Canned Tuna", "tuna", 15)},
@@ -194,6 +197,22 @@ public struct Tool : IItem {
 	public string model;
 
 	public Tool(string n, string m, bool stack = true) {
+		name = n;
+		model = m;
+
+		canStack = stack;
+		amount = 1;
+	}
+}
+
+public struct Throwable : IItem {
+	public string name { get; set; }
+	public bool canStack { get; set; }
+	public int amount { get; set; }
+
+	public string model;
+
+	public Throwable(string n, string m, bool stack = true) {
 		name = n;
 		model = m;
 

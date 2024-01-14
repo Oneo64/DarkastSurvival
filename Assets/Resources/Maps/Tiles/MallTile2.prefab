@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4120872808252661832}
   m_Layer: 0
-  m_Name: PlacedItem (15)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8847172053868181243}
   m_Layer: 0
-  m_Name: PlacedItem (5)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,7 +91,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8883890079640851185}
-  m_RootOrder: 34
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &547565256331000011
 GameObject:
@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3770144200444501824}
   m_Layer: 0
-  m_Name: PlacedItem (12)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +156,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8883890079640851185}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &4452714681565344229
 MeshFilter:
@@ -254,7 +254,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8883890079640851185}
-  m_RootOrder: 41
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: -20, y: 0, z: 0}
 --- !u!33 &3480522126604887864
 MeshFilter:
@@ -329,7 +329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 491987453333226328}
   m_Layer: 0
-  m_Name: PlacedItem (16)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -360,7 +360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5745596500562254920}
   m_Layer: 0
-  m_Name: PlacedItem (7)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -379,7 +379,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8883890079640851185}
-  m_RootOrder: 36
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1929584883843415550
 GameObject:
@@ -391,7 +391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1006507755184392125}
   m_Layer: 0
-  m_Name: PlacedItem (8)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -410,7 +410,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8883890079640851185}
-  m_RootOrder: 37
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2008611163282157408
 GameObject:
@@ -422,7 +422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7269450740640775760}
   m_Layer: 0
-  m_Name: PlacedItem (14)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -581,7 +581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6525061174776827397}
   m_Layer: 0
-  m_Name: PlacedItem (10)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -600,7 +600,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8883890079640851185}
-  m_RootOrder: 39
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2494863607541120183
 GameObject:
@@ -709,7 +709,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4474059276611242538}
   m_Layer: 0
-  m_Name: PlacedItem (4)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -728,7 +728,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8883890079640851185}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3284225830850695049
 GameObject:
@@ -740,7 +740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8638864480477280022}
   m_Layer: 0
-  m_Name: PlacedItem (11)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -759,7 +759,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8883890079640851185}
-  m_RootOrder: 40
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3453239220663802243
 GameObject:
@@ -1315,7 +1315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2715058350422650406}
   m_Layer: 0
-  m_Name: PlacedItem (18)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1444,7 +1444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4771816310317058294}
   m_Layer: 0
-  m_Name: PlacedItem (1)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1463,7 +1463,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8883890079640851185}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6578237964236522137
 GameObject:
@@ -1572,7 +1572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6800361006036099644}
   m_Layer: 0
-  m_Name: PlacedItem (6)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1591,7 +1591,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8883890079640851185}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6884013766495324248
 GameObject:
@@ -1700,7 +1700,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7505198087373585693}
   m_Layer: 0
-  m_Name: PlacedItem (3)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1719,7 +1719,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8883890079640851185}
-  m_RootOrder: 32
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6970610106444585976
 GameObject:
@@ -1987,7 +1987,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1106099359387760924}
   m_Layer: 0
-  m_Name: PlacedItem (13)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2018,7 +2018,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1525584756849313795}
   m_Layer: 0
-  m_Name: PlacedItem (17)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2049,7 +2049,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3871733587811761671}
   m_Layer: 0
-  m_Name: PlacedItem (9)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2068,7 +2068,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8883890079640851185}
-  m_RootOrder: 38
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7820240939714401618
 GameObject:
@@ -2453,6 +2453,7 @@ Transform:
   - {fileID: 7246155696144445195}
   - {fileID: 4759156910879398067}
   - {fileID: 5360590536263729327}
+  - {fileID: 4452487858910655924}
   - {fileID: 1579802557326351243}
   - {fileID: 5896940040963001410}
   - {fileID: 4771816310317058294}
@@ -2466,7 +2467,6 @@ Transform:
   - {fileID: 3871733587811761671}
   - {fileID: 6525061174776827397}
   - {fileID: 8638864480477280022}
-  - {fileID: 4452487858910655924}
   - {fileID: 3770144200444501824}
   - {fileID: 1106099359387760924}
   - {fileID: 7269450740640775760}
@@ -2504,6 +2504,8 @@ MonoBehaviour:
   - canned_soup
   - canned_tuna
   - canned_tuna
+  - wood
+  - grenade
   rareLoot:
   - makarov
   - mossberg_500
@@ -2899,7 +2901,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1781425566440203958}
   m_Layer: 0
-  m_Name: PlacedItem (2)
+  m_Name: PlacedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2918,7 +2920,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8883890079640851185}
-  m_RootOrder: 31
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9207099797376538705
 GameObject:
@@ -2949,5 +2951,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8883890079640851185}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}

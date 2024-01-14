@@ -61,6 +61,10 @@ public class StaticProjectile : MonoBehaviour
 				Destroy(gameObject);
 			}
 
+			if (Vector3.Distance(startPos, transform.position) > 0 && GetComponent<MeshRenderer>()) {
+				GetComponent<MeshRenderer>().enabled = true;
+			}
+
 			if (drop && Vector3.Distance(startPos, transform.position) >= accurateRange) {
 				gravity += Physics.gravity.y * Time.deltaTime;
 				speed += (Physics.gravity.y / 2f) * Time.deltaTime;
@@ -89,7 +93,7 @@ public class StaticProjectile : MonoBehaviour
 				int dmg = Random.Range(minDamage, maxDamage + 1);
 
 				float dmg2 = dmg / 100f;
-				int newForce = newForce = (int) Mathf.Round(force * (dmg2 * dmg2));
+				int newForce = (int) Mathf.Round(force * (dmg2 * dmg2));
 
 				if (hit.transform.name == "Skull") dmg *= 2;
 				if (hit.transform.name.Contains("Arm") || hit.transform.name.Contains("Leg")) dmg = (int) Mathf.Round(dmg * 0.2f);
@@ -108,7 +112,10 @@ public class StaticProjectile : MonoBehaviour
 							Vector3 forceDir = (c.transform.position - hit.point).normalized;
 
 							if (c.transform.GetComponentInParent<Enemy>()) {
-								c.transform.GetComponentInParent<Enemy>().CmdDamage(dmg, forceDir * newForce);
+								c.transform.GetComponentInParent<Enemy>().CmdDamage(
+									dmg, forceDir * newForce, owner.GetComponent<PlayerCore>()
+								);
+								
 								Blood(c.transform.position, forceDir, forceDir);
 							}
 
@@ -125,7 +132,9 @@ public class StaticProjectile : MonoBehaviour
 					}
 				} else {
 					if (hit.transform.GetComponentInParent<Enemy>()) {
-						hit.transform.GetComponentInParent<Enemy>().CmdDamage(dmg, transform.forward * newForce);
+						hit.transform.GetComponentInParent<Enemy>().CmdDamage(
+							dmg, transform.forward * newForce, owner.GetComponent<PlayerCore>()
+						);
 					}
 
 					if (hit.transform.GetComponentInParent<PlayerCore>()) {
@@ -134,7 +143,7 @@ public class StaticProjectile : MonoBehaviour
 				}
 			}
 
-			blood = hit.transform.GetComponentInParent<HasBlood>();
+			blood = hit.transform.GetComponentInParent<HasBlood>() != null;
 
 			if (hit.transform.GetComponent<Rigidbody>()) {
 				hit.transform.GetComponent<Rigidbody>().AddForceAtPosition(transform.forward * force, hit.point);
@@ -146,6 +155,8 @@ public class StaticProjectile : MonoBehaviour
 				
 			CreateBulletHole(hit, hit, blood);
 
+			if (GetComponent<MeshRenderer>()) GetComponent<MeshRenderer>().enabled = false;
+
 			bool canPenetrate2 = penetration > 0 && canPenetrate;
 			bool isThin = Physics.Raycast(hit.point + (transform.forward * 0.5f), -transform.forward, out RaycastHit hit2, 0.5f, LayerMask.GetMask("Default"));
 
@@ -154,6 +165,15 @@ public class StaticProjectile : MonoBehaviour
 				
 				transform.position = hit2.point + (transform.forward * 0.05f);
 				transform.forward += rand;
+
+				CreateBulletHole(hit, hit2, blood);
+
+				penetration -= 1;
+			} else if (canRicochet && Random.Range(1, 5) == 1 && Vector3.Angle(transform.forward, hit.normal) > 45) {
+				Vector3 rand = new Vector3(Random.Range(-0.05f, 0.05f), Random.Range(-0.05f, 0.05f), Random.Range(-0.05f, 0.05f));
+				
+				transform.position = hit.point + (hit.normal * 0.05f);
+				transform.forward = Vector3.Reflect(transform.forward, hit.normal);
 
 				CreateBulletHole(hit, hit2, blood);
 
@@ -242,7 +262,7 @@ public class StaticProjectile : MonoBehaviour
 					if (blood) n = "Blood";
 
 					g.transform.Find(n).gameObject.SetActive(true);
-				} else g.transform.Find("Default").gameObject.SetActive(true);
+				} else g.transform.Find(blood ? "Blood" : "Default").gameObject.SetActive(true);
 			}
 		}
 

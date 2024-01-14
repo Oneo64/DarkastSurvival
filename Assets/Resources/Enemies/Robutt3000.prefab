@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1830738162083405169}
-  - component: {fileID: 8918639555010337007}
+  - component: {fileID: 4001541206867955486}
   - component: {fileID: 1478177836790977372}
   - component: {fileID: 1830738162083405172}
   - component: {fileID: 1830738162083405170}
@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 6200416391469897238}
   - component: {fileID: 1273277401772647410}
   - component: {fileID: 3894744124397172587}
-  - component: {fileID: -85815050451807992}
   m_Layer: 6
   m_Name: Robutt3000
   m_TagString: Enemy
@@ -45,7 +44,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8918639555010337007
+--- !u!114 &4001541206867955486
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,18 +53,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1830738162083405173}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ce308eea66337642b1bbec7031347a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 59b7bfa31e8bd404f9c30f8e477fcd73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
   detectionRange: 50
-  health: 100
-  reach: 1
+  health: 500
+  score: 20
+  reach: 2
   isDead: 0
   attackInterval: 0.5
-  moveInterval: 0.3
+  moveInterval: 0.5
   ragdollname: HumanoidRagdoll
   follow: {fileID: 0}
   isLeader: 0
@@ -78,11 +78,8 @@ MonoBehaviour:
   walkWait: 0
   attackWait: 0
   target: {fileID: 0}
-  renderer: {fileID: 4689992297444042471}
-  shirt: {r: 0, g: 0, b: 0, a: 0}
-  pants: {r: 0, g: 0, b: 0, a: 0}
-  minDamage: 5
-  maxDamage: 10
+  minDamage: 10
+  maxDamage: 15
 --- !u!114 &1478177836790977372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,11 +93,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - {fileID: 8300000, guid: a368f36c26b8ffb4bba4095217bd1343, type: 3}
-  - {fileID: 8300000, guid: 12c86f3a4541bf44aafb211fceb581a7, type: 3}
-  - {fileID: 8300000, guid: f3d73f5a59538e340bb0e44724965025, type: 3}
-  - {fileID: 8300000, guid: 58944cdf0aec92c4da53490866a5afd2, type: 3}
-  - {fileID: 8300000, guid: 045d9f9ce1ce1814f8c1fa2e2d806a1d, type: 3}
   - {fileID: 8300000, guid: 2b24cf2a4d311164ba1bf346e4bc5cbd, type: 3}
   sound: {fileID: 8766517089471540183}
   interval: 5
@@ -216,9 +208,9 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 5
+  m_Speed: 3
   m_Acceleration: 100
-  avoidancePriority: 50
+  avoidancePriority: 3
   m_AngularSpeed: 300
   m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
@@ -242,18 +234,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 5611899044511816213}
   canPlay: 1
---- !u!114 &-85815050451807992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830738162083405173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48368103eec500e46a1ff96bc819e335, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2332294859017080307
 GameObject:
   m_ObjectHideFlags: 0

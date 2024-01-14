@@ -36,6 +36,7 @@ public class PlayerInventory : NetworkBehaviour
 
 		AddItem("flashlight");
 		AddItem("canned_tuna", 3);
+		AddItem("grenade", 3);
 	}
 
 	void Update() {
@@ -90,7 +91,6 @@ public class PlayerInventory : NetworkBehaviour
 		if (modelName != "") {
 			GameObject model = Instantiate(Resources.Load("ItemModels/" + modelName) as GameObject, tool);
 
-			model.transform.localScale = Vector3.one;
 			model.transform.localPosition = Vector3.zero;
 			model.transform.localEulerAngles = Vector3.zero;
 		}
@@ -113,6 +113,13 @@ public class PlayerInventory : NetworkBehaviour
 			UpdateToolModel(t.model);
 		} else if (inventory[selected] != null && inventory[selected].GetData() is Food) {
 			Food t = (Food) inventory[selected].GetData();
+
+			core.animator.CrossFade("Hold", 0.2f, 1);
+			
+			CmdUpdateToolModel(t.model);
+			UpdateToolModel(t.model);
+		} else if (inventory[selected] != null && inventory[selected].GetData() is Throwable) {
+			Throwable t = (Throwable) inventory[selected].GetData();
 
 			core.animator.CrossFade("Hold", 0.2f, 1);
 			

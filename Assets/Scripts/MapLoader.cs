@@ -9,13 +9,12 @@ using Mirror;
 public class MapLoader : MonoBehaviour
 {
 	public NavMeshSurface[] surfaces;
-
 	public void LoadMap(string n) {
 		StartCoroutine(_LoadMap(n));
 	}
 
 	public IEnumerator _LoadMap(string n) {
-		for (int i = 0; i < transform.childCount; i++) {
+		for (int i = transform.childCount - 1; i >= 0; i--) {
 			Destroy(transform.GetChild(i).gameObject);
 		}
 

@@ -9,6 +9,8 @@ TagManager:
   - Workbench
   - Enemy
   - Item
+  - Ragdoll
+  - Spawner
   layers:
   - Default
   - TransparentFX

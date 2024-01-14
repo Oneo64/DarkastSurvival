@@ -1659,6 +1659,7 @@ MonoBehaviour:
   - canned_soup
   - canned_tuna
   - canned_tuna
+  - wood
   rareLoot:
   - makarov
   - mossberg_500

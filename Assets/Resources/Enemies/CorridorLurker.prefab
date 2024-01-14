@@ -56,10 +56,12 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   detectionRange: 50
-  health: 1000
+  health: 500
+  score: 30
   reach: 3
   isDead: 0
   attackInterval: 0.2
+  specialAbilityInterval: 3
   moveInterval: 0.1
   ragdollname: 
   follow: {fileID: 0}
@@ -67,11 +69,13 @@ MonoBehaviour:
   leaderChance: 10
   minionId: corridorminion
   minionCount: 3
+  minionAttackDistance: 30
   slowReaction: 0
   agent: {fileID: 0}
   animator: {fileID: 0}
   walkWait: 0
   attackWait: 0
+  specialWait: 0
   target: {fileID: 0}
   body: {fileID: 0}
   normalRoll: 4
@@ -176,11 +180,11 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830738162083405173}
   m_Enabled: 1
-  m_AgentTypeID: -1372625422
+  m_AgentTypeID: -334000983
   m_Radius: 1
   m_Speed: 4
   m_Acceleration: 20
-  avoidancePriority: 50
+  avoidancePriority: 0
   m_AngularSpeed: 90
   m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1

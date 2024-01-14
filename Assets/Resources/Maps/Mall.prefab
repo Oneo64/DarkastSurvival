@@ -1471,10 +1471,11 @@ MonoBehaviour:
   enemies:
   - {fileID: 1830738162083405173, guid: 375b5dd2413776d41bb6553777aacab7, type: 3}
   - {fileID: 1830738162083405173, guid: d449d8c15eec2924c80ddc1dad9c3c42, type: 3}
+  - {fileID: 1830738162083405173, guid: c70fae95a39e62b47afcc2293bb3f17e, type: 3}
   - {fileID: 1830738162083405173, guid: 80d1fe2efed97bf438dbcc72e32ecb1a, type: 3}
   - {fileID: 1830738162083405173, guid: 0ba8d51d3e116f34695d0f76ebe425d9, type: 3}
   maxEnemies: 15
-  spawnRange: 30
+  spawnRange: 40
   spawnInterval: 5
 --- !u!114 &1753433573053701222
 MonoBehaviour:

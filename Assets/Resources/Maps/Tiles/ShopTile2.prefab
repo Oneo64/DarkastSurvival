@@ -1016,6 +1016,7 @@ MonoBehaviour:
   - canned_soup
   - canned_tuna
   - wood
+  - spring
   rareLoot:
   - pistol_magazine
   - assault_rifle_magazine

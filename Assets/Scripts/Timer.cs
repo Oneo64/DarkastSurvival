@@ -20,9 +20,9 @@ public class Timer : NetworkBehaviour
 	IEnumerator Start() {
 		yield return new WaitUntil(() => NetworkClient.localPlayer != null);
 
-		loader.LoadMap(startingMap);
-
 		if (NetworkClient.localPlayer.isServer) {
+			loader.LoadMap(startingMap);
+
 			while (true) {
 				seconds -= 1;
 

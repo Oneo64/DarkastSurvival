@@ -11,13 +11,26 @@ public class LootSpawner : NetworkBehaviour
 	public Transform target;
 
 	public bool generateLoot = true;
+	public bool recursive = false;
 
 	void Start() {
 		if (isServer) {
 			if (target == null) target = transform;
 
+			Transform[] search = recursive ? target.GetComponentsInChildren<Transform>() : new Transform[] {};
+
+			if (!recursive) {
+				List<Transform> s = new List<Transform>();
+
+				foreach (Transform t in transform) {
+					s.Add(t);
+				}
+
+				search = s.ToArray();
+			}
+
 			if (generateLoot) {
-				foreach (Transform t in target) {
+				foreach (Transform t in search) {
 					if (t.name.ToLower().Contains("shelf")) {
 						if (Random.Range(1, 11) == 1) {
 							Vector3 pos = t.position + (Vector3.up * Random.Range(1, 4) * 0.5f);
@@ -30,7 +43,7 @@ public class LootSpawner : NetworkBehaviour
 					}
 				}
 			} else {
-				foreach (Transform t in target) {
+				foreach (Transform t in search) {
 					if (t.name == "PlacedItem") {
 						GameObject item = Instantiate(Resources.Load("PlacedItem") as GameObject, t.position, Quaternion.identity);
 

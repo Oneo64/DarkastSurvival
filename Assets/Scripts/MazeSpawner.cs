@@ -12,15 +12,27 @@ public class MazeSpawner : NetworkBehaviour
 	[Min(1)] public int spawnInterval = 10;
 
 	IEnumerator Start() {
-		yield return new WaitUntil(() => isServer && ((GetComponent<Maze>() && GetComponent<Maze>().spawnedTiles.Count > 0) || (GetComponent<DynamicMaze>() && GetComponent<DynamicMaze>().spawnedTiles.Count > 0)));
-
+		if (GetComponent<Maze>() || GetComponent<DynamicMaze>()) {
+			yield return new WaitUntil(() => isServer && ((GetComponent<Maze>() && GetComponent<Maze>().spawnedTiles.Count > 0) || (GetComponent<DynamicMaze>() && GetComponent<DynamicMaze>().spawnedTiles.Count > 0)));
+		}
+		
 		Transform[] tiles = {};
 
 		if (GetComponent<Maze>()) tiles = GetComponent<Maze>().spawnedTiles.ToArray();
 		if (GetComponent<DynamicMaze>()) tiles = GetComponent<DynamicMaze>().spawnedTiles.ToArray();
 
+		if (tiles.Length == 0) {
+			List<Transform> l = new List<Transform>() {};
+
+			foreach (GameObject g in GameObject.FindGameObjectsWithTag("Spawner")) {
+				l.Add(g.transform);
+			}
+
+			tiles = l.ToArray();
+		}
+
 		while (true) {
-			if (GetEnemyCount() < maxEnemies ) {
+			if (GetEnemyCount() < maxEnemies) {
 				Transform tile = tiles[Random.Range(0, tiles.Length)];
 
 				bool canSpawn = true;

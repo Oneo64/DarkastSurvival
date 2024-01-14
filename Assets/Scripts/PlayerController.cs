@@ -71,14 +71,14 @@ public class PlayerController : NetworkBehaviour
 
 			dir.y = 0;
 
-			float bobX = Mathf.Sin(bobTime * Mathf.Max(dir.magnitude, 0.5f) * bobSpeed * 0.5f) * bobMult * bobIntensity * 0.01f;
-			float bobY = Mathf.Sin((bobTime + 0.5f) * Mathf.Max(dir.magnitude, 0.5f) * bobSpeed) * bobMult * bobIntensity * 0.01f;
+			float bobX = Mathf.Sin(bobTime * bobSpeed * 0.5f) * bobMult * bobIntensity * 0.01f;
+			float bobY = Mathf.Sin((bobTime + 0.5f) * bobSpeed) * bobMult * bobIntensity * 0.01f;
 
-			bobTime += Time.deltaTime;
+			bobTime += Time.deltaTime * Mathf.Max(dir.magnitude, 0.5f);
 
 			if (dir.magnitude > 0.1f) bobMult += Time.deltaTime; else bobMult -= Time.deltaTime;
 
-			bobMult = Mathf.Clamp(bobMult, 0.1f, 1);
+			bobMult = Mathf.Clamp(bobMult, 0.05f, 1);
 
 			core.camera.transform.localPosition = camBobPos + (Vector3.right * bobX) + (Vector3.up * bobY);
 			transform.localEulerAngles = Vector3.up * rotation.y;

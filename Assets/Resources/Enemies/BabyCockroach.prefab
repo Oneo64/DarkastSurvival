@@ -314,17 +314,23 @@ MonoBehaviour:
   syncInterval: 0
   detectionRange: 6
   health: 20
+  score: 2
   reach: 1
   isDead: 0
   attackInterval: 0.1
   moveInterval: 1
   ragdollname: HumanoidRagdoll
+  follow: {fileID: 0}
+  isLeader: 0
+  leaderChance: 100
+  minionId: 
+  minionCount: 2
+  slowReaction: 0
   agent: {fileID: 0}
   animator: {fileID: 0}
   walkWait: 0
+  attackWait: 0
   target: {fileID: 0}
-  leader: 0
-  babyId: 
   minDamage: 2
   maxDamage: 3
 --- !u!114 &1478177836790977372

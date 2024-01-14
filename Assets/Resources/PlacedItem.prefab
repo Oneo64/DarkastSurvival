@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9165067074596344841}
   - component: {fileID: 9165067074596344840}
   - component: {fileID: 3517436471721965019}
+  - component: {fileID: 4810392904071838918}
   m_Layer: 7
   m_Name: PlacedItem
   m_TagString: Item
@@ -80,3 +81,37 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4810392904071838918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9165067074596344847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff3ba0becae47b8b9381191598957c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 9165067074596344842}
+  clientAuthority: 0
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChange: 1
+  onlySyncOnChangeCorrectionMultiplier: 2
+  sendIntervalMultiplier: 3
+  rotationSensitivity: 1
+  compressRotation: 0
+  positionPrecision: 0.2
+  scalePrecision: 0.2
+  timelineOffset: 0

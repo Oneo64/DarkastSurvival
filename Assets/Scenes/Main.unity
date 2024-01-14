@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0015804849, g: 0.0015804849, b: 0.0015804849, a: 1}
+  m_IndirectSpecularColor: {r: 0.0015886624, g: 0.0015886624, b: 0.0015886624, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -294,6 +294,7 @@ MonoBehaviour:
   - shop
   - parkinglot
   - station
+  - town
 --- !u!4 &394452068
 Transform:
   m_ObjectHideFlags: 0
@@ -309,6 +310,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &430264330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 430264331}
+  - component: {fileID: 430264333}
+  - component: {fileID: 430264332}
+  m_Layer: 5
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &430264331
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430264330}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1424464009}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 2.5, y: -15}
+  m_SizeDelta: {x: -5, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &430264332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430264330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 30dc370b164eefc43b95744fc796dad0, type: 3}
+    m_FontSize: 16
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &430264333
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430264330}
+  m_CullTransparentMesh: 1
 --- !u!1 &573407828
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +761,7 @@ GameObject:
   - component: {fileID: 1004348832}
   - component: {fileID: 1004348831}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Dot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -967,6 +1048,7 @@ RectTransform:
   - {fileID: 1004348830}
   - {fileID: 597735969}
   - {fileID: 783268557}
+  - {fileID: 430264331}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1066,7 +1148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AgentTypeID: -1372625422
+  m_AgentTypeID: -334000983
   m_CollectObjects: 2
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
@@ -1080,7 +1162,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.5
+  m_VoxelSize: 0.25
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 142da63456c237c43ab035bdd60cdaf5, type: 2}
   m_BuildHeightMesh: 0
@@ -1376,6 +1458,11 @@ MonoBehaviour:
   - {fileID: 8706803325010548170, guid: aab08f67857bdd4489ad0794a4d61848, type: 3}
   - {fileID: 1830738162083405173, guid: 80d1fe2efed97bf438dbcc72e32ecb1a, type: 3}
   - {fileID: 1830738162083405173, guid: 38239e4f00a891b4998530015306f616, type: 3}
+  - {fileID: 1830738162083405173, guid: 17e3d3ec15cdece408103a81b3415ca3, type: 3}
+  - {fileID: 1830738162083405173, guid: c70fae95a39e62b47afcc2293bb3f17e, type: 3}
+  - {fileID: 1830738162083405173, guid: 2411876bef567324c9bd22c95e9c51ee, type: 3}
+  - {fileID: 2505422889415450211, guid: 549678781ee5c8b4f826ee45d302c127, type: 3}
+  - {fileID: 8607566052844075940, guid: d02a2c57462ea8c41a2a4c35746c0e03, type: 3}
   snapshotSettings:
     bufferTimeMultiplier: 2
     catchupNegativeThreshold: -1

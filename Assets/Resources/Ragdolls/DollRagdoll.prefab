@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 1431978139729531284}
   m_Layer: 6
   m_Name: DollRagdoll
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
