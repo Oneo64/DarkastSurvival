@@ -109,7 +109,11 @@ public class PlayerController : NetworkBehaviour
 		}
 
 		if (Input.GetKey(KeyCode.LeftShift)) {
-			way = way.normalized * 6 * speed;
+			int runSpeed = 6;
+
+			if (core.perk == Perk.Athlete) runSpeed = 8; else if (core.perk == Perk.Monkey) runSpeed = 9;
+
+			way = way.normalized * runSpeed * speed;
 		} else {
 			way = way.normalized * 3 * speed;
 		}

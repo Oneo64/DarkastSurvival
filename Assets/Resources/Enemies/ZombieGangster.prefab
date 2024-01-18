@@ -190,10 +190,11 @@ MonoBehaviour:
   syncInterval: 0
   detectionRange: 200
   health: 100
-  score: 25
+  score: 60
   reach: 180
   isDead: 0
   attackInterval: 0.05
+  specialAbilityInterval: 3
   moveInterval: 4
   ragdollname: HumanoidRagdoll
   follow: {fileID: 0}
@@ -201,11 +202,13 @@ MonoBehaviour:
   leaderChance: 100
   minionId: 
   minionCount: 2
+  minionAttackDistance: 20
   slowReaction: 1
   agent: {fileID: 0}
   animator: {fileID: 0}
   walkWait: 0
   attackWait: 0
+  specialWait: 0
   target: {fileID: 0}
   renderer: {fileID: 5275089881059560182}
   shirt: {r: 0, g: 0, b: 0, a: 0}

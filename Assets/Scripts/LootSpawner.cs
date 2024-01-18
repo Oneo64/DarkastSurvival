@@ -12,6 +12,7 @@ public class LootSpawner : NetworkBehaviour
 
 	public bool generateLoot = true;
 	public bool recursive = false;
+	public int generatedLootChance = 10;
 
 	void Start() {
 		if (isServer) {
@@ -22,7 +23,7 @@ public class LootSpawner : NetworkBehaviour
 			if (!recursive) {
 				List<Transform> s = new List<Transform>();
 
-				foreach (Transform t in transform) {
+				foreach (Transform t in target) {
 					s.Add(t);
 				}
 
@@ -32,7 +33,7 @@ public class LootSpawner : NetworkBehaviour
 			if (generateLoot) {
 				foreach (Transform t in search) {
 					if (t.name.ToLower().Contains("shelf")) {
-						if (Random.Range(1, 11) == 1) {
+						if (Random.Range(1, generatedLootChance + 1) == 1) {
 							Vector3 pos = t.position + (Vector3.up * Random.Range(1, 4) * 0.5f);
 							GameObject item = Instantiate(Resources.Load("PlacedItem") as GameObject, pos, Quaternion.identity);
 

@@ -30,6 +30,8 @@ public class DroppedItem : NetworkBehaviour
 				modelName = ((Tool) Database.items[newValue.id]).model;
 			} else if (Database.items[newValue.id] is Food) {
 				modelName = ((Food) Database.items[newValue.id]).model;
+			} else if (Database.items[newValue.id] is Throwable) {
+				modelName = ((Throwable) Database.items[newValue.id]).model;
 			}
 
 			if (Resources.Load("ItemModels/" + modelName)) {

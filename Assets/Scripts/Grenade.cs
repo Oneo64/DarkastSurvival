@@ -6,7 +6,9 @@ using Mirror;
 
 public class Grenade : NetworkBehaviour
 {
+	public bool mustBeLit;
 	public float fuse = 4;
+	[HideInInspector] public bool hasExploded;
 
 	[Header("Damage")]
 	public int maxDamage = 40;
@@ -24,10 +26,14 @@ public class Grenade : NetworkBehaviour
 		if (!isServer) GetComponent<Rigidbody>().isKinematic = true;
 
 		yield return new WaitForSeconds(fuse);
-		Check();
+		if (!mustBeLit) Check();
 	}
 
 	private void Check() {
+		if (hasExploded) return;
+
+		hasExploded = true;
+
 		if (NetworkClient.localPlayer.isServer) {
 			int dmg = Random.Range(minDamage, maxDamage + 1);
 
@@ -59,11 +65,18 @@ public class Grenade : NetworkBehaviour
 				if (c.transform.GetComponent<Rigidbody>() && c.transform.name == "LowerSpine") {
 					c.transform.GetComponent<Rigidbody>().AddForceAtPosition(forceDir * newForce, transform.position);
 				}
+
+				// Big kaboom
+				if (c.transform.GetComponent<Grenade>() && c.transform != transform && c.transform.GetComponent<Grenade>().mustBeLit) {
+					c.transform.GetComponent<Grenade>().Check();
+				}
 			}
 
 			GetComponent<MeshRenderer>().enabled = false;
 			GetComponent<Rigidbody>().isKinematic = true;
 			GetComponent<MeshCollider>().enabled = false;
+
+			transform.eulerAngles = Vector3.zero;
 
 			RpcExplode();
 
@@ -73,10 +86,13 @@ public class Grenade : NetworkBehaviour
 
 	[ClientRpc]
 	private void RpcExplode() {
+		transform.eulerAngles = Vector3.zero;
+
 		if (transform.Find("Sound")) transform.Find("Sound").GetComponent<AudioSource>().Play();
-		transform.Find("Flash").GetComponent<ParticleSystem>().Play();
-		transform.Find("Debris").GetComponent<ParticleSystem>().Play();
-		transform.Find("Smoke").GetComponent<ParticleSystem>().Play();
+
+		foreach (Transform t in transform) {
+			if (t.GetComponent<ParticleSystem>()) t.GetComponent<ParticleSystem>().Play();
+		}
 	}
 
 	private void Blood(Vector3 pos, Vector3 dir, Vector3 normal) {

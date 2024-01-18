@@ -3444,6 +3444,7 @@ MonoBehaviour:
   - canned_tuna
   - battery
   - grenade
+  - gunpowder
   rareLoot:
   - makarov
   - mossberg_500
@@ -3453,8 +3454,11 @@ MonoBehaviour:
   - ak_47
   - mac_10
   - energy_rifle
+  - dynamite
   target: {fileID: 8351860598653835515}
   generateLoot: 0
+  recursive: 0
+  generatedLootChance: 10
 --- !u!1 &8695347359454298689
 GameObject:
   m_ObjectHideFlags: 0

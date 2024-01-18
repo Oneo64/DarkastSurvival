@@ -154,10 +154,11 @@ MonoBehaviour:
   syncInterval: 0
   detectionRange: 50
   health: 200
-  score: 20
+  score: 15
   reach: 2
   isDead: 0
   attackInterval: 2
+  specialAbilityInterval: 3
   moveInterval: 0.5
   ragdollname: ShadowRagdoll
   follow: {fileID: 0}
@@ -165,11 +166,13 @@ MonoBehaviour:
   leaderChance: 100
   minionId: 
   minionCount: 2
+  minionAttackDistance: 20
   slowReaction: 0
   agent: {fileID: 0}
   animator: {fileID: 0}
   walkWait: 0
   attackWait: 0
+  specialWait: 0
   target: {fileID: 0}
   minDamage: 40
   maxDamage: 60

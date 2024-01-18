@@ -135,11 +135,19 @@ public class Enemy : NetworkBehaviour
 		SendMessage("UpdateLoop", SendMessageOptions.DontRequireReceiver);
 	}
 
+	List<PlayerCore> players = new List<PlayerCore>();
+	float playerGetWait = 0;
+
 	public void LookForEnemies() {
 		Transform newTarget = null;
 		float dist = detectionRange;
 
-		foreach (PlayerCore player in Object.FindObjectsOfType<PlayerCore>()) {
+		if (playerGetWait < Time.time) {
+			players = new List<PlayerCore>(Object.FindObjectsOfType<PlayerCore>());
+			playerGetWait = Time.time + Random.Range(4f, 6f);
+		}
+
+		foreach (PlayerCore player in players) {
 			Transform targ = player.transform;
 
 			if (!Physics.Linecast(transform.position + (Vector3.up * 1.5f), targ.position + (Vector3.up * 1.5f), LayerMask.GetMask("Default"))) {

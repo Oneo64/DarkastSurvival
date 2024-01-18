@@ -23,7 +23,7 @@ public class Infector : Enemy
 	public IEnumerator SpecialAbility() {
 		Transform t = LookForBody();
 
-		if (t && Vector3.Distance(transform.position, target.position) <= raiseDistance) {
+		if (t && Vector3.Distance(transform.position, t.position) <= raiseDistance) {
 			animator.CrossFade("Attack", 0.2f);
 
 			yield return new WaitForSeconds(0.4f);

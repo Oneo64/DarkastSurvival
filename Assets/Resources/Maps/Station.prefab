@@ -831,7 +831,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1000
+  m_Intensity: 5000
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -893,7 +893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 1000
+  m_Intensity: 5000
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -1263,6 +1263,12 @@ MonoBehaviour:
   - {fileID: 8706803325010548170, guid: ff00a67424e3bb846aa0b30a15516cab, type: 3}
   - {fileID: 8706803325010548170, guid: ff00a67424e3bb846aa0b30a15516cab, type: 3}
   - {fileID: 8706803325010548170, guid: ff00a67424e3bb846aa0b30a15516cab, type: 3}
+  - {fileID: 8706803325010548170, guid: ff00a67424e3bb846aa0b30a15516cab, type: 3}
+  - {fileID: 8706803325010548170, guid: ff00a67424e3bb846aa0b30a15516cab, type: 3}
+  - {fileID: 8706803325010548170, guid: ff00a67424e3bb846aa0b30a15516cab, type: 3}
+  - {fileID: 8706803325010548170, guid: ff00a67424e3bb846aa0b30a15516cab, type: 3}
+  - {fileID: 8706803325010548170, guid: ff00a67424e3bb846aa0b30a15516cab, type: 3}
+  - {fileID: 8706803325010548170, guid: ff00a67424e3bb846aa0b30a15516cab, type: 3}
   rareTiles:
   - {fileID: 8706803325010548170, guid: 85588d68ec89a01429e6fad10aece941, type: 3}
   spawnedTiles: []
@@ -1285,7 +1291,6 @@ MonoBehaviour:
   - {fileID: 1830738162083405173, guid: d449d8c15eec2924c80ddc1dad9c3c42, type: 3}
   - {fileID: 1830738162083405173, guid: 375b5dd2413776d41bb6553777aacab7, type: 3}
   - {fileID: 1830738162083405173, guid: 24c5679425540f14eb336b66772e6448, type: 3}
-  - {fileID: 1830738162083405173, guid: 38239e4f00a891b4998530015306f616, type: 3}
   maxEnemies: 10
   spawnRange: 40
   spawnInterval: 5

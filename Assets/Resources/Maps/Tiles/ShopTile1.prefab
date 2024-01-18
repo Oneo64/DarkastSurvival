@@ -1020,7 +1020,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5499286754390877121}
-  - component: {fileID: 6105819130088593650}
   - component: {fileID: -8420868664502076510}
   - component: {fileID: -3565102519460427645}
   m_Layer: 0
@@ -1064,32 +1063,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6105819130088593650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5499286754390877134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0b46d71d304f8446a3a2879386e17da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  commonLoot:
-  - canned_soup
-  - canned_tuna
-  - wood
-  - spring
-  rareLoot:
-  - makarov
-  - glock_17
-  - handmade_rifle
-  target: {fileID: 0}
-  generateLoot: 1
 --- !u!114 &-8420868664502076510
 MonoBehaviour:
   m_ObjectHideFlags: 0

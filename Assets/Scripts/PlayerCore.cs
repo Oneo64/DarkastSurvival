@@ -16,6 +16,7 @@ public class PlayerCore : NetworkBehaviour
 	[SyncVar(hook="UpdateScore")] public int score;
 
 	Volume bloodEffect;
+	int maxHealth = 100;
 	int health = 100;
 
 	float shootWait;
@@ -28,6 +29,8 @@ public class PlayerCore : NetworkBehaviour
 
 	bool reloading;
 
+	[HideInInspector] public Perk perk;
+
 	void Start() {
 		Cursor.lockState = CursorLockMode.Locked;
 		bloodEffect = GameObject.Find("BloodVolume").GetComponent<Volume>();
@@ -37,6 +40,43 @@ public class PlayerCore : NetworkBehaviour
 		inventory = GetComponent<PlayerInventory>();
 
 		Application.targetFrameRate = 70;
+
+		perk = canvas.Find("Perks").GetComponent<Perks>().perk;
+		canvas.Find("Perks").gameObject.SetActive(false);
+
+		switch (perk) {
+			case Perk.Athlete:
+				maxHealth = 150;
+				break;
+
+			case Perk.Engineer:
+				inventory.AddItem("wood", 5);
+				inventory.AddItem("metal", 5);
+				inventory.AddItem("spring", 5);
+				inventory.AddItem("battery", 1);
+				break;
+
+			case Perk.ExplosionGuy:
+				inventory.AddItem("grenade", 1);
+				inventory.AddItem("paper", 5);
+				inventory.AddItem("metal", 8);
+				inventory.AddItem("gunpowder", 8);
+				break;
+
+			case Perk.Monkey:
+				maxHealth = 10;
+				inventory.AddItem("canned_soup", 1);
+				inventory.AddItem("rope", 1);
+				break;
+
+			case Perk.Survivior:
+				inventory.AddItem("flare", 2);
+				inventory.AddItem("colt_navy", 1);
+				inventory.AddItem(".38_rimfire_box", 2);
+				break;
+		}
+
+		health = maxHealth;
 	}
 
 	void Update() {
@@ -78,17 +118,16 @@ public class PlayerCore : NetworkBehaviour
 				canvas.Find("Interact").gameObject.SetActive(false);
 			}
 
-			if (inventory.selectedItem != null) {
+			if (inventory.selectedItem.id != "") {
 				if (Input.GetKeyDown(KeyCode.Q)) {
-					Item item = inventory.inventory[inventory.selected];
-					item.amount -= 1;
+					inventory.selectedItem.amount -= 1;
 					
-					Item item2 = new Item(item.id, 1);
-					item2.externalData = item.externalData;
+					Item item = new Item(inventory.selectedItem.id, 1);
+					item.externalData = inventory.selectedItem.externalData;
 
-					if (item.amount <= 0) inventory.inventory[inventory.selected] = null;
+					if (inventory.selectedItem.amount <= 0) inventory.selectedItem.id = "";
 
-					CmdDrop(item2, camera.transform.position, camera.transform.forward);
+					CmdDrop(item, camera.transform.position, camera.transform.forward);
 
 					inventory.UpdateInventory();
 					inventory.CheckAnimations();
@@ -98,9 +137,9 @@ public class PlayerCore : NetworkBehaviour
 
 					health += ((Food) item.GetData()).heal;
 
-					if (health > 100) health = 100;
+					if (health > maxHealth) health = maxHealth;
 
-					if (item.amount <= 0) inventory.inventory[inventory.selected] = null;
+					if (item.amount <= 0) inventory.inventory[inventory.selected].id = "";
 
 					inventory.UpdateInventory();
 					inventory.CheckAnimations();
@@ -148,7 +187,7 @@ public class PlayerCore : NetworkBehaviour
 						Item item = inventory.inventory[inventory.selected];
 						item.amount -= 1;
 
-						if (item.amount <= 0) inventory.inventory[inventory.selected] = null;
+						if (item.amount <= 0) inventory.inventory[inventory.selected].id = "";
 
 						inventory.UpdateInventory();
 						inventory.CheckAnimations();
@@ -162,10 +201,10 @@ public class PlayerCore : NetworkBehaviour
 				if (!canvas.Find("Dot").gameObject.activeInHierarchy) canvas.Find("Dot").gameObject.SetActive(true);
 			}
 
-			Color healthColor = Color.HSVToRGB(Mathf.Clamp01(Mathf.Lerp(-0.5f, 1.5f, health / 100f)) / 3, 1, 1);
+			Color healthColor = Color.HSVToRGB(Mathf.Clamp01(Mathf.Lerp(-0.5f, 1.5f, (float) health / maxHealth)) / 3, 1, 1);
 
 			canvas.Find("Health").Find("Bar").GetComponent<Image>().color = healthColor;
-			canvas.Find("Health").Find("Bar").GetComponent<Image>().fillAmount = health / 100f;
+			canvas.Find("Health").Find("Bar").GetComponent<Image>().fillAmount = (float) health / maxHealth;
 
 			if (health <= 50) {
 				bloodEffect.weight = 1 - Mathf.Clamp(health / 50f, 0, 1);
@@ -184,12 +223,17 @@ public class PlayerCore : NetworkBehaviour
 
 		reloading = false;
 
-		if (inventory.selectedItem != null && inventory.selectedItem.GetData() is Gun) {
+		if (inventory.selectedItem.id != "" && inventory.selectedItem.GetData() is Gun) {
 			Gun gun = (Gun) inventory.selectedItem.GetData();
 
 			inventory.selectedItem.externalData = gun.maxAmmunition;
 			inventory.RemoveItem(gun.model[2]);
 		}
+	}
+
+	[TargetRpc]
+	public void RpcMoveTo(Vector3 pos) {
+		transform.position = pos;
 	}
 
 	[TargetRpc]

@@ -1820,7 +1820,7 @@ MonoBehaviour:
   - {fileID: 1830738162083405173, guid: d931df30f93c1b649b1d7e4b20f68a39, type: 3}
   - {fileID: 1830738162083405173, guid: 24c5679425540f14eb336b66772e6448, type: 3}
   - {fileID: 1830738162083405173, guid: da108213a8931ad4c9650390b13fab3c, type: 3}
-  maxEnemies: 5
+  maxEnemies: 20
   spawnRange: 30
   spawnInterval: 5
 --- !u!114 &1897335054446998147
@@ -1842,6 +1842,11 @@ MonoBehaviour:
   - metal
   - wood
   - spring
+  - gunpowder
+  - paper
+  - rope
+  - string
+  - gunpowder
   - canned_tuna
   - canned_tuna
   - canned_soup
@@ -1865,6 +1870,7 @@ MonoBehaviour:
   target: {fileID: 0}
   generateLoot: 0
   recursive: 1
+  generatedLootChance: 10
 --- !u!1 &8954687877383997913
 GameObject:
   m_ObjectHideFlags: 0

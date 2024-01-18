@@ -172,6 +172,7 @@ MonoBehaviour:
   - canned_tuna
   - canned_tuna
   - metal
+  - flare
   rareLoot:
   - makarov
   - colt_navy
@@ -179,6 +180,8 @@ MonoBehaviour:
   - battery
   target: {fileID: 0}
   generateLoot: 0
+  recursive: 0
+  generatedLootChance: 10
 --- !u!114 &4601133105203849940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +214,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  target: {fileID: 5499286754390877121, guid: 9d43bfc852077d64988279f52f8bfde1, type: 3}
+  target: {fileID: 4484374304163314562}
   clientAuthority: 0
   syncPosition: 1
   syncRotation: 1

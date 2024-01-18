@@ -162,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 1830738162083405173}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2139431596449399146}
@@ -188,11 +188,12 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   detectionRange: 50
-  health: 300
-  score: 40
+  health: 200
+  score: 45
   reach: 2
   isDead: 0
   attackInterval: 2
+  specialAbilityInterval: 3
   moveInterval: 0.1
   ragdollname: MannequinRagdoll
   follow: {fileID: 0}
@@ -200,11 +201,13 @@ MonoBehaviour:
   leaderChance: 100
   minionId: 
   minionCount: 2
+  minionAttackDistance: 20
   slowReaction: 0
   agent: {fileID: 0}
   animator: {fileID: 0}
   walkWait: 0
   attackWait: 0
+  specialWait: 0
   target: {fileID: 0}
   speed: 20
   renderer: {fileID: 5275089881059560182}
@@ -340,9 +343,9 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830738162083405173}
   m_Enabled: 1
-  m_AgentTypeID: -1372625422
+  m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 10
+  m_Speed: 7
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 720

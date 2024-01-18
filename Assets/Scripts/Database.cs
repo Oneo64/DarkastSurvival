@@ -94,12 +94,25 @@ public class Database : Object
 		{"wood", new Tool("Wood Plank", "wood")},
 		{"metal", new Tool("Metal Scrap", "metal")},
 		{"spring", new Tool("Spring", "spring")},
+		{"gunpowder", new Tool("Gunpowder", "gunpowder")},
+		{"string", new Tool("String", "string")},
+		{"rope", new Tool("Rope", "rope")},
+		{"paper", new Tool("Sheet of Paper", "paper")},
 
-		{"flare", new Throwable("Metal Scrap", "metal")},
+		{"flare", new Throwable("Flare", "flare")},
 		{"grenade", new Throwable("Grenade", "grenade")},
+		{"dynamite", new Throwable("Dynamite Bundle", "dynamite")},
 
 		{"canned_soup", new Food("Canned Soup", "soup", 10)},
 		{"canned_tuna", new Food("Canned Tuna", "tuna", 15)},
+	};
+
+	public static Dictionary<string, Dictionary<string, int>> crafting = new Dictionary<string, Dictionary<string, int>>() {
+		{"handmade_rifle", new Dictionary<string, int>() {{"wood", 20}, {"metal", 5}, {"spring", 2}}},
+		{"handmade_fire_pistol", new Dictionary<string, int>() {{"wood", 10}, {"metal", 4}}},
+		{"grenade", new Dictionary<string, int>() {{"gunpowder", 6}, {"metal", 4}, {"string", 1}}},
+		{"flare", new Dictionary<string, int>() {{"paper", 5}, {"rope", 2}, {"string", 1}}},
+		{"dynamite", new Dictionary<string, int>() {{"paper", 20}, {"gunpowder", 15}, {"string", 10}}},
 	};
 
 	public static Dictionary<string, int> richochetProbs = new Dictionary<string, int>() {
@@ -129,6 +142,7 @@ public class Database : Object
 	}
 }
 
+[System.Serializable]
 public class Item {
 	public string id;
 	public int amount;
@@ -274,4 +288,13 @@ public struct Limb {
 		rotation = r;
 		force = f;
 	}
+}
+
+public enum Perk {
+	NoPerk,
+	Athlete,
+	Engineer,
+	ExplosionGuy,
+	Monkey,
+	Survivior
 }

@@ -358,9 +358,60 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  inventory:
+  - id: flashlight
+    amount: 1
+    externalData: 0
+  - id: canned_tuna
+    amount: 3
+    externalData: 0
+  - id: 
+    amount: 0
+    externalData: 0
+  - id: 
+    amount: 0
+    externalData: 0
+  - id: 
+    amount: 0
+    externalData: 0
+  - id: 
+    amount: 0
+    externalData: 0
+  - id: 
+    amount: 0
+    externalData: 0
+  - id: 
+    amount: 0
+    externalData: 0
+  - id: 
+    amount: 0
+    externalData: 0
+  - id: 
+    amount: 0
+    externalData: 0
+  - id: 
+    amount: 0
+    externalData: 0
+  - id: 
+    amount: 0
+    externalData: 0
+  - id: 
+    amount: 0
+    externalData: 0
+  - id: 
+    amount: 0
+    externalData: 0
+  - id: 
+    amount: 0
+    externalData: 0
+  - id: 
+    amount: 0
+    externalData: 0
   rigs: {fileID: -8679921383154817045, guid: fb2dc5040cb78bb458fceabb87a5422d, type: 3}
   tool: {fileID: 4027550009066002694}
   selected: 2
+  craftingSelected: 0
+  recipe: 
 --- !u!136 &1830738162083405172
 CapsuleCollider:
   m_ObjectHideFlags: 0

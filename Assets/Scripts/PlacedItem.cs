@@ -25,6 +25,8 @@ public class PlacedItem : NetworkBehaviour
 				modelName = ((Tool) Database.items[newValue]).model;
 			} else if (Database.items[newValue] is Food) {
 				modelName = ((Food) Database.items[newValue]).model;
+			} else if (Database.items[newValue] is Throwable) {
+				modelName = ((Throwable) Database.items[newValue]).model;
 			}
 
 			if (Resources.Load("ItemModels/" + modelName)) {

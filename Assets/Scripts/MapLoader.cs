@@ -45,7 +45,7 @@ public class MapLoader : MonoBehaviour
 		NetworkStartPosition[] spawns = Object.FindObjectsOfType<NetworkStartPosition>();
 
 		foreach (PlayerCore player in Object.FindObjectsOfType<PlayerCore>()) {
-			if (!player.isDead) player.transform.position = spawns[Random.Range(0, spawns.Length)].transform.position;
+			if (!player.isDead) player.RpcMoveTo(spawns[Random.Range(0, spawns.Length)].transform.position);
 		}
 
 		NetworkIdentity[] identities = map.GetComponentsInChildren<NetworkIdentity>();

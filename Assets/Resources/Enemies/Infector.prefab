@@ -200,7 +200,7 @@ MonoBehaviour:
   isLeader: 1
   leaderChance: 100
   minionId: darkast
-  minionCount: 2
+  minionCount: 5
   minionAttackDistance: 30
   slowReaction: 0
   agent: {fileID: 0}

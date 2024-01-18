@@ -1017,14 +1017,21 @@ MonoBehaviour:
   - canned_tuna
   - wood
   - spring
+  - metal
+  - paper
+  - flare
+  - rope
   rareLoot:
   - pistol_magazine
   - assault_rifle_magazine
   - makarov
   - glock_17
   - handmade_rifle
+  - grenade
   target: {fileID: 0}
   generateLoot: 1
+  recursive: 0
+  generatedLootChance: 1
 --- !u!114 &-8420868664502076510
 MonoBehaviour:
   m_ObjectHideFlags: 0
